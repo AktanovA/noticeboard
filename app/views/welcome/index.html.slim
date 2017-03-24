@@ -1,5 +1,9 @@
-h1 Hello World!
-
+h1 Hello world!
+br
+=' link_to 'Listing all articles', controller: 'articles'
+br
+=' link_to 'New article', new_article_path
+br
 - if user_signed_in?
 	' Your email:
     = current_user.email
@@ -8,3 +12,5 @@ h1 Hello World!
 - else
     =' link_to('Login', new_user_session_path)
 	=' link_to('Sign up', new_user_registration_path)
+
+
