@@ -18,9 +18,11 @@ table
         = article.price
       td
         = link_to 'Show', article_path(article)
-      td
-        = link_to 'Edit',edit_article_path(article)
-      td
-        = link_to 'Destroy', article_path(article), method: :delete
+      - if user_signed_in?
+        - if current_user.id == article.user_id
+            td
+              = link_to 'Edit',edit_article_path(article)
+            td
+              = link_to 'Destroy', article_path(article), method: :delete
 br
 = link_to 'New article', new_article_path

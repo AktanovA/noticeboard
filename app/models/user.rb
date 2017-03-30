@@ -4,6 +4,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
+  has_many :articles
+
   # User Avatar Validation
   validates_integrity_of  :avatar
   validates_processing_of :avatar
