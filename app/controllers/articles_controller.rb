@@ -17,12 +17,18 @@ class ArticlesController < ApplicationController
   end
 
 	def create
-    @article = current_user.articles.new(article_params)
-    if @article.save
-      redirect_to @article
+    a = current_user.articles.new(article_params)
+    a.save!
+    a.images[0].url # => '/url/to/file.png'
+    a.images[0].current_path # => 'path/to/file.png'
+    a.images[0].identifier # => 'f
+
+    if a.save!
+     redirect_to a, notice: "New article created!"
     else
     render 'new'
-    end
+    end 
+
 	end
 
   def update
@@ -41,7 +47,7 @@ class ArticlesController < ApplicationController
 
 private
   def article_params
-    params.require(:article).permit(:title, :text, :price)
+    params.require(:article).permit(:title, :text, :price, {images: []})
   end
 
   def set_article

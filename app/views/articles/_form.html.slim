@@ -1,4 +1,4 @@
-= form_for @article do |f|
+= simple_form_for @article do |f|
   - if @article.errors.any?
     #error_explanation
       h2
@@ -21,4 +21,7 @@
     br
     = f.text_field :price
   p
-    = f.submit
+    ' Choose ad photo
+    br
+    = f.file_field :images, multiple: true  
+  = f.submit
