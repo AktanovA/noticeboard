@@ -18,12 +18,7 @@ class ArticlesController < ApplicationController
 
 	def create
     a = current_user.articles.new(article_params)
-    a.save!
-    a.images[0].url # => '/url/to/file.png'
-    a.images[0].current_path # => 'path/to/file.png'
-    a.images[0].identifier # => 'f
-
-    if a.save!
+    if a.save
      redirect_to a, notice: "New article created!"
     else
     render 'new'
