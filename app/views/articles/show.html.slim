@@ -11,6 +11,10 @@ p
     | Price:
   = @article.price
 p
+  strong
+    | Category:
+  = @article.category.name
+p
 div
   - @article.images.each do |image|
     = image_tag(image.url)

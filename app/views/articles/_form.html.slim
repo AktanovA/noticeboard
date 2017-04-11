@@ -21,6 +21,8 @@
     br
     = f.text_field :price
   p
+    = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}
+  p
     ' Choose ad photo
     br
     = f.file_field :images, multiple: true  

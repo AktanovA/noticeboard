@@ -42,7 +42,7 @@ class ArticlesController < ApplicationController
 
 private
   def article_params
-    params.require(:article).permit(:title, :text, :price, {images: []})
+    params.require(:article).permit(:title, :text, :price, {images: []}, :category_id)
   end
 
   def set_article
