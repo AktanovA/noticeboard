@@ -23,6 +23,8 @@
   p
     = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}
   p
+    = f.select :type_id, Article.type_ids.keys
+  p
     ' Choose ad photo
     br
     = f.file_field :images, multiple: true  

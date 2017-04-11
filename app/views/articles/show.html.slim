@@ -15,6 +15,10 @@ p
     | Category:
   = @article.category.name
 p
+  strong
+    | Type:
+  = @article.type_id 
+p
 div
   - @article.images.each do |image|
     = image_tag(image.url)
