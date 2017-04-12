@@ -5,5 +5,5 @@ class Article < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  enum type_id: [:Purchase, :Sale, :Rent, :Serice, :Barter]
+  enum type_id: [:Purchase, :Sale, :Rent, :Service, :Barter]
 end

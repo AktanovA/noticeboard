@@ -20,4 +20,6 @@ html
     = link_to('Register', new_user_registration_path)
     br
     = link_to('Login', new_user_session_path)
+  - if current_user && current_user.is_admin?
+    = link_to 'Admin', admin_dashboard_path
   = yield
